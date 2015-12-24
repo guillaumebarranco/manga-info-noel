@@ -44,4 +44,32 @@ $(document).ready(function() {
 		$('li[data-epreuve=4]').show();
 	}
 
+	/*
+	*	Final
+	*/
+
+	$('.final_button').on('click', function() {
+
+		var data = {
+			answer: $('.final_input').val(),
+			final_answer: true
+		};
+
+		$.ajax({
+			type : "POST",
+			data: data,
+			url : "http://localhost/guillaume/mi/functions.php",
+			success: function(response) {
+				console.log(response);
+				response = JSON.parse(response);
+				if(response.status === 'answer found !') {
+					popSuccess('You found the right answer ! Just say the word "Tsubasa" to prove it !');
+				}
+			},
+			error: function() {
+				console.log('error');
+            }
+		});
+	});
+
 });
