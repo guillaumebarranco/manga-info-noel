@@ -1,0 +1,52 @@
+header {
+	text-align: center;
+}
+
+.wrapper {
+	margin: 0 auto;
+	width: 500px;
+	text-align: center;
+}
+
+.box {
+	padding: 20px;
+	border: solid 1px black;
+	height: 100px;
+}
+
+.box input {
+	display: block;
+	position: relative;
+	top: 25px;
+	width: 250px;
+	margin: 0 auto;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.epreuves li {
+	list-style: none;
+}
+
+footer {
+	text-align: center;
+}
+
+/*
+*	Epreuve 1
+*/
+
+.quizz {
+	margin: 20px 0;
+	padding: 20px;
+	border: solid 1px black;
+}
+
+.question {
+	margin-top: 10px;
+}
+
+.validate {
+	margin-top: 30px;
+	padding: 15px;
+}
