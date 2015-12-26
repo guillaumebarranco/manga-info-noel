@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	var url_functions = WEB_URL+"functions.php";
+
 
 	$('.epreuves li').hide();
 
@@ -58,7 +60,7 @@ $(document).ready(function() {
 		$.ajax({
 			type : "POST",
 			data: data,
-			url : "http://localhost/mi/functions.php",
+			url : url_functions,
 			success: function(response) {
 				console.log(response);
 				response = JSON.parse(response);
@@ -73,7 +75,6 @@ $(document).ready(function() {
 	});
 
 	$('.question button').on('click', function() {
-		console.log('ok');
 
 		$(this).parent().find('button').removeClass('active');
 		$(this).addClass('active');
@@ -100,7 +101,7 @@ $(document).ready(function() {
 			$.ajax({
 				type : "POST",
 				data: data,
-				url : "http://localhost/mi/functions.php",
+				url : url_functions,
 				success: function(response) {
 					response = JSON.parse(response);
 					popError(response.content);
