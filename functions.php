@@ -67,6 +67,9 @@
 		if(isset($_POST['answer']) && $_POST['answer'] === 'trente') {
 			$status = 'success';
 			$response['content'] = 'Vous avez trouvé la bonne réponse ! Vous avez obtenu la phrase secrète : "Un lapin en feu dansant la salsa" !';
+		} else if(isset($_POST['answer']) && $_POST['answer'] === 'XM45T27A') {
+			$status = 'error';
+			$response['content'] = "C'était bien tenté, j'avoue. Tu auras une gauffre. Mais tu t'es gauffré.";
 		} else {
 			$status = 'error';
 			$response['content'] = 'Mauvaise réponse mon lapin. Au mieux cette danse t\'as envoyé valsé...';
