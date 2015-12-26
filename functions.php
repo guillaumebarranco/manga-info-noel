@@ -51,7 +51,8 @@
 		}
 
 		if($nb_errors === 0) {
-			$response['content'] = "Secret password";
+			$response['content'] = "internet.php";
+			$status = 'success';
 		} else {
 			$status = 'error';
 			$response['content'] = 'Vous avez '.$nb_errors.' erreurs !';
@@ -64,6 +65,7 @@
 	function finalResponse() {
 
 		if(isset($_POST['answer']) && $_POST['answer'] === 'secret') {
+			$status = 'success';
 			$response['content'] = 'You found the right answer ! Just say the word "Tsubasa" to prove it !';
 		} else {
 			$status = 'error';

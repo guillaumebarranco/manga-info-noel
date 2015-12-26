@@ -110,7 +110,12 @@ $(document).ready(function() {
 					if(response.status === 'error') {
 						popError(response.content);
 					} else {
-						popSuccess(response.content);
+						swal({
+							type: 'success',
+							title: "Bravo !"
+						}, function() {
+							window.location.href = response.content;
+						});
 					}
 				},
 				error: function() {
