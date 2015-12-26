@@ -8,20 +8,22 @@ $(document).ready(function() {
 	if (!Date.now) Date.now = function() { return new Date().getTime(); }
 
 	var current_date = Math.floor(Date.now() / 1000);
+	console.log(current_date);
+
 	var first_date = 1451088034;
 	var second_date = 1451174434;
 	var third_date = 1451260834;
 	var fourth_date = 1451347234;
 
 	// current_date = firth_date+1;
-	current_date = fourth_date+1;
+	// current_date = fourth_date+1;
 
 	var checkDate = function () {
 
-		if($('.page_epreuve_1').length !== 0 && current_date < first_date) window.location.href = 'index.html';
-		if($('.page_epreuve_2').length !== 0 && current_date < second_date) window.location.href = 'index.html';
-		if($('.page_epreuve_3').length !== 0 && current_date < third_date) window.location.href = 'index.html';
-		if($('.page_epreuve_4').length !== 0 && current_date < fourth_date) window.location.href = 'index.html';
+		if($('.page_epreuve_1').length !== 0 && current_date < first_date) window.location.href = 'index.php';
+		if($('.page_epreuve_2').length !== 0 && current_date < second_date) window.location.href = 'index.php';
+		if($('.page_epreuve_3').length !== 0 && current_date < third_date) window.location.href = 'index.php';
+		if($('.page_epreuve_4').length !== 0 && current_date < fourth_date) window.location.href = 'index.php';
 
 		if(current_date > first_date) showFirstEpreuve();
 		if(current_date > second_date) showSecondEpreuve();
@@ -64,8 +66,8 @@ $(document).ready(function() {
 			success: function(response) {
 				console.log(response);
 				response = JSON.parse(response);
-				if(response.status === 'answer found !') {
-					popSuccess('You found the right answer ! Just say the word "Tsubasa" to prove it !');
+				if(response.status === 'success') {
+					popSuccess('');
 				}
 			},
 			error: function() {

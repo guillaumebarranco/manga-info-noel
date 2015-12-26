@@ -64,12 +64,13 @@
 	function finalResponse() {
 
 		if(isset($_POST['answer']) && $_POST['answer'] === 'secret') {
-			$status = 'answer found !';
+			$status = ;
+			$response['content'] = 'You found the right answer ! Just say the word "Tsubasa" to prove it !';
 		} else {
-			$status = 'error for answer';
+			$status = 'error';
+			$response['content'] = 'error for answer';
 		}
 
-		$response = array();
 		$response['status'] = $status;
 
 		echo json_encode($response);	
