@@ -11,7 +11,7 @@ $(document).ready(function() {
 	console.log(current_date);
 
 	var first_date = 1451088034;
-	var second_date = 1451174434;
+	var second_date = 1451248137;
 	var third_date = 1451260834;
 	var fourth_date = 1451347234;
 
