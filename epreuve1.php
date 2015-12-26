@@ -25,7 +25,7 @@
 
 		<div class="wrapper">
 			<p>
-				<strong>Explication de l'épreuve</strong>
+				<strong>Vous devez répondre au Quizz. Une seule bonne réponse par question. Vous ne pourrez accéder à l'indice qu'une fois toutes les bonnes réponses données, bon courage !</strong>
 			</p>
 
 			<div class="quizz">
