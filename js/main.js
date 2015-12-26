@@ -106,7 +106,12 @@ $(document).ready(function() {
 				url : url_functions,
 				success: function(response) {
 					response = JSON.parse(response);
-					popError(response.content);
+					
+					if(response.status === 'error') {
+						popError(response.content);
+					} else {
+						popSuccess(response.content);
+					}
 				},
 				error: function() {
 					console.log('error');
