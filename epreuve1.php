@@ -125,8 +125,9 @@
 		</footer>
 
 		<?php require_once('config.php'); ?>
-		<script>var WEB_URL = '<?=WEB_URL?>';</script>
-		<script>console.log(WEB_URL);</script>
+		<script>
+			var WEB_URL = "<?=WEB_URL?>";
+		</script>
 
 		<script src="js/jquery-2.0.0.min.js"></script>
 		<script src="js/sweet-alert.min.js"></script>
