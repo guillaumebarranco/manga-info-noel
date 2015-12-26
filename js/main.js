@@ -64,10 +64,11 @@ $(document).ready(function() {
 			data: data,
 			url : url_functions,
 			success: function(response) {
-				console.log(response);
 				response = JSON.parse(response);
 				if(response.status === 'success') {
-					popSuccess('');
+					popSuccess(response.content);;
+				} else {
+					popError(response.content);
 				}
 			},
 			error: function() {

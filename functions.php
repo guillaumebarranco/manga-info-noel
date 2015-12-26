@@ -64,12 +64,12 @@
 
 	function finalResponse() {
 
-		if(isset($_POST['answer']) && $_POST['answer'] === 'secret') {
+		if(isset($_POST['answer']) && $_POST['answer'] === 'trente') {
 			$status = 'success';
-			$response['content'] = 'You found the right answer ! Just say the word "Tsubasa" to prove it !';
+			$response['content'] = 'Vous avez trouvé la bonne réponse ! Vous avez obtenu la phrase secrète : "Un lapin en feu dansant la salsa" !';
 		} else {
 			$status = 'error';
-			$response['content'] = 'error for answer';
+			$response['content'] = 'Mauvaise réponse mon lapin. Au mieux cette danse t\'as envoyé valsé...';
 		}
 
 		$response['status'] = $status;
