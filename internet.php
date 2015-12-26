@@ -27,6 +27,8 @@
 				Ce que vous aimez sur le forum de manga-info ?<br><br>
 				<strong>Le jeu spécial de fin d'année</strong>
 			</p>
+
+			<div><a href="index.php">Revenir à la page principale</a></div>
 		</div>
 
 

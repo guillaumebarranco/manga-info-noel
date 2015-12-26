@@ -19,7 +19,7 @@
 
 	<body>
 		
-		<header>
+		<header class="page_epreuve_2">
 			<h1>Epreuve 1 : Le Quizz</h1>
 		</header>
 
@@ -40,6 +40,11 @@
 		<footer>
 			Copyright © Manga-Info 2015
 		</footer>
+
+		<?php require_once('config.php'); ?>
+		<script>
+			var WEB_URL = "<?=WEB_URL?>";
+		</script>
 
 		<script src="js/jquery-2.0.0.min.js"></script>
 		<script src="js/sweet-alert.min.js"></script>
