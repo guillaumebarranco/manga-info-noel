@@ -58,7 +58,7 @@ $(document).ready(function() {
 		$.ajax({
 			type : "POST",
 			data: data,
-			url : "http://localhost/guillaume/mi/functions.php",
+			url : "http://localhost/mi/functions.php",
 			success: function(response) {
 				console.log(response);
 				response = JSON.parse(response);
@@ -70,6 +70,48 @@ $(document).ready(function() {
 				console.log('error');
             }
 		});
+	});
+
+	$('.question button').on('click', function() {
+		console.log('ok');
+
+		$(this).parent().find('button').removeClass('active');
+		$(this).addClass('active');
+	});
+
+	$('.validate_quizz').on('click', function() {
+
+		if($('.active').length === 12) {
+
+			data = {
+				quizz_answer: true,
+				answers_quizz: []
+			};
+
+			var i = 1;
+
+			$('.active').each(function() {
+				data.answers_quizz[i] = $(this).text();
+				i++;
+			});
+
+			console.log(data);
+
+			$.ajax({
+				type : "POST",
+				data: data,
+				url : "http://localhost/mi/functions.php",
+				success: function(response) {
+					response = JSON.parse(response);
+					popError(response.content);
+				},
+				error: function() {
+					console.log('error');
+	            }
+			});
+		} else {
+			popError("Vous n'avez pas répondu à toutes les questions");
+		}
 	});
 
 });
