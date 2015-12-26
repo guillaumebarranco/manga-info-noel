@@ -64,7 +64,6 @@
 	function finalResponse() {
 
 		if(isset($_POST['answer']) && $_POST['answer'] === 'secret') {
-			$status = ;
 			$response['content'] = 'You found the right answer ! Just say the word "Tsubasa" to prove it !';
 		} else {
 			$status = 'error';
