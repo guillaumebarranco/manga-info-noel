@@ -15,10 +15,54 @@
 		} else if(isset($_POST['quizz_answer'])) {
 			checkQuizz();
 
+		} else if(isset($_POST['chemin'])) {
+			checkChemin();
+
 		} else {
 			$status = "error";
 			echo json_encode($status);
 		}
+	}
+
+	function checkChemin() {
+		$chemin = array();
+	
+		$chemin[1] = "Détenu 042";
+		$chemin[2] = "Jomon";
+		$chemin[3] = "Fairy Tail";
+		$chemin[4] = "Powerdark94";
+
+		$_POST['number'] = intval($_POST['number']);
+
+		if(strtolower($_POST['answer_chemin']) === strtolower($chemin[$_POST['number']])) {
+
+			switch ($_POST['number']) {
+				case 1:
+					$response['content'] = "detenu042.php";
+				break;
+
+				case 2:
+					$response['content'] = "jomon.php";
+				break;
+
+				case 3:
+					$response['content'] = "fairytail.php";
+				break;
+
+				case 4:
+					$response['content'] = "powerdark94.php";
+				break;
+			}
+
+			$status = 'success';
+
+		} else {
+			$status = 'error';
+			$response['content'] = "Ce n'est pas la bonne réponse, cherche mieux !";
+		}
+
+		$response['status'] = $status;
+		echo json_encode($response);
 	}
 
 	function checkQuizz() {
@@ -44,7 +88,7 @@
 			$nb_errors = 0;
 
 			for ($i=1; $i <= 12; $i++) {
-				if($_POST['answers_quizz'][$i] !== $quizz[$i]) {
+				if(strtolower($_POST['answers_quizz'][$i]) !== strtolower($quizz[$i])) {
 					$nb_errors++;
 				}
 			}
@@ -64,10 +108,10 @@
 
 	function finalResponse() {
 
-		if(isset($_POST['answer']) && $_POST['answer'] === 'trente') {
+		if(isset($_POST['answer']) && strtolower($_POST['answer']) === 'trente') {
 			$status = 'success';
 			$response['content'] = 'Vous avez trouvé la bonne réponse ! Vous avez obtenu la phrase secrète : "Un lapin en feu dansant la salsa" !';
-		} else if(isset($_POST['answer']) && $_POST['answer'] === 'XM45T27A') {
+		} else if(isset($_POST['answer']) && strtolower($_POST['answer']) === strtolower('XM45T27A')) {
 			$status = 'error';
 			$response['content'] = "C'était bien tenté, j'avoue. Tu auras une gauffre. Mais tu t'es gauffré.";
 		} else {

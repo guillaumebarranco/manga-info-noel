@@ -24,19 +24,16 @@
 		</header>
 
 		<div class="wrapper">
-			<p>
-				Explication de l'épreuve
-			</p>
 
 			<div class="indice">
-				Un seinen qui termine par un numéro
+				Première période de l'histoire Japonaise
 			</div>
 
-			<input type="text" name="indice1">
+			<input type="text" name="indice2">
+
 			<div class="style_input">
-				<button class="validate_epreuve2" data-answer="1">Valider</button>
+				<button class="validate_epreuve2" data-answer="2">Valider</button>
 			</div>
-			
 		</div>
 
 		<footer>

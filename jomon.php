@@ -24,19 +24,16 @@
 		</header>
 
 		<div class="wrapper">
-			<p>
-				Explication de l'épreuve
-			</p>
 
 			<div class="indice">
-				Un seinen qui termine par un numéro
+				Le manga principal qui a le plus de lettres
 			</div>
 
-			<input type="text" name="indice1">
-			<div class="style_input">
-				<button class="validate_epreuve2" data-answer="1">Valider</button>
-			</div>
+			<input type="text" name="indice3">
 			
+			<div class="style_input">
+				<button class="validate_epreuve2" data-answer="3">Valider</button>
+			</div>
 		</div>
 
 		<footer>

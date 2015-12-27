@@ -16,7 +16,7 @@ $(document).ready(function() {
 	var fourth_date = 1451347234;
 
 	// current_date = firth_date+1;
-	// current_date = fourth_date+1;
+	current_date = second_date+1;
 
 	var checkDate = function () {
 
@@ -87,7 +87,7 @@ $(document).ready(function() {
 
 		if($('.active').length === 12) {
 
-			data = {
+			var data = {
 				quizz_answer: true,
 				answers_quizz: []
 			};
@@ -126,6 +126,46 @@ $(document).ready(function() {
 		} else {
 			popError("Vous n'avez pas répondu à toutes les questions");
 		}
+	});
+
+	$('.validate_epreuve2').on('click', function() {
+
+		var answer = $('input[name=indice'+$(this).attr('data-answer')+']').val();
+
+		if(answer !== '') {
+
+			var data = {
+				chemin: true,
+				answer_chemin: answer,
+				number: $(this).attr('data-answer')
+			};
+
+			console.log(data);
+
+			$.ajax({
+				type : "POST",
+				data: data,
+				url : url_functions,
+				success: function(response) {
+					response = JSON.parse(response);
+					
+					if(response.status === 'error') {
+						popError(response.content);
+					} else {
+						swal({
+							type: 'success',
+							title: "Bravo !"
+						}, function() {
+							window.location.href = response.content;
+						});
+					}
+				},
+				error: function() {
+					console.log('error');
+	            }
+			});
+		}
+
 	});
 
 });

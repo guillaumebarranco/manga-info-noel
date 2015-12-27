@@ -24,19 +24,16 @@
 		</header>
 
 		<div class="wrapper">
-			<p>
-				Explication de l'épreuve
-			</p>
 
 			<div class="indice">
-				Un seinen qui termine par un numéro
+				Le membre n°4321, Admin Manga Info étant le n°1
 			</div>
 
-			<input type="text" name="indice1">
+			<input type="text" name="indice4">
+
 			<div class="style_input">
-				<button class="validate_epreuve2" data-answer="1">Valider</button>
+				<button class="validate_epreuve2" data-answer="4">Valider</button>
 			</div>
-			
 		</div>
 
 		<footer>
