@@ -16,7 +16,7 @@ $(document).ready(function() {
 	var fourth_date = 1451347234;
 
 	// current_date = firth_date+1;
-	current_date = second_date+1;
+	// current_date = second_date+1;
 
 	var checkDate = function () {
 
