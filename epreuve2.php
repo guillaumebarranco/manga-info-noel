@@ -25,7 +25,7 @@
 
 		<div class="wrapper">
 			<p>
-				Explication de l'épreuve
+				L'objectif de cette épreuve est de trouver à quoi correspond chacun des indices, et de rentrer la réponse correspondante dans le champ pour accéder à l'indice suivant, puis l'indice final.
 			</p>
 
 			<div class="indice">
@@ -46,7 +46,9 @@
 		<?php require_once('config.php'); ?>
 		<script>
 			var WEB_URL = "<?=WEB_URL?>";
+			var admin = false;
 		</script>
+		<?php if(isset($_GET['cygheks'])) echo '<script>var admin = true;</script>'; ?>
 
 		<script src="js/jquery-2.0.0.min.js"></script>
 		<script src="js/sweet-alert.min.js"></script>

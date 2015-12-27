@@ -62,7 +62,9 @@
 		<?php require_once('config.php'); ?>
 		<script>
 			var WEB_URL = "<?=WEB_URL?>";
+			var admin = false;
 		</script>
+		<?php if(isset($_GET['cygheks'])) echo '<script>var admin = true;</script>'; ?>
 
 		<script src="js/jquery-2.0.0.min.js"></script>
 		<script src="js/sweet-alert.min.js"></script>

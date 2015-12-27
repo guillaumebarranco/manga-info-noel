@@ -43,12 +43,27 @@ button {
 	color: #bada55;
 }
 
-.question button {
+.question button, .doublechoix button {
 	background-color: white;
 }
 
-.question button.active {
+.question button.active, .doublechoix button.active {
 	background-color: blue;
+}
+
+td {
+	text-align: left;
+}
+
+.doublechoix button {
+	background-color: white;
+	width: 115px;
+}
+.doublechoix .bg_green.active {
+	background-color: green;
+}
+.doublechoix .bg_red.active {
+	background-color: red;
 }
 
 .box {
@@ -98,4 +113,16 @@ footer {
 
 .question {
 	margin-top: 10px;
+}
+
+.green {
+	color: green;
+}
+
+.red {
+	color: red;
+}
+
+.click {
+	cursor: pointer;
 }

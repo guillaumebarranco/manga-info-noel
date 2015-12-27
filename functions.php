@@ -15,6 +15,9 @@
 		} else if(isset($_POST['quizz_answer'])) {
 			checkQuizz();
 
+		} else if(isset($_POST['doublechoix_answer'])) {
+			checkDoubleChoix();
+
 		} else if(isset($_POST['chemin'])) {
 			checkChemin();
 
@@ -96,6 +99,40 @@
 
 		if($nb_errors === 0) {
 			$response['content'] = "internet.php";
+			$status = 'success';
+		} else {
+			$status = 'error';
+			$response['content'] = 'Vous avez '.$nb_errors.' erreurs !';
+		}
+
+		$response['status'] = $status;
+		echo json_encode($response);
+	}
+
+	function checkDoubleChoix() {
+
+		$doublechoix = array();
+	
+		$doublechoix[1] = "Majin-ikki";
+		$doublechoix[2] = "Faux";
+		$doublechoix[3] = "10 du mois";
+		$doublechoix[4] = "Les 4 ans du forum";
+		$doublechoix[5] = "Shika'";
+		$doublechoix[6] = "lire et écrire";
+
+		if(!empty($_POST['answers_doublechoix'])) {
+
+			$nb_errors = 0;
+
+			for ($i=1; $i <= 6; $i++) {
+				if(strtolower($_POST['answers_doublechoix'][$i]) !== strtolower($doublechoix[$i])) {
+					$nb_errors++;
+				}
+			}
+		}
+
+		if($nb_errors === 0) {
+			$response['content'] = "Bravo, vous avez trouvé les bonnes réponses ! Malheureusement, ce n'est pas la bonne façon d'obtenir l'indice.";
 			$status = 'success';
 		} else {
 			$status = 'error';

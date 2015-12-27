@@ -2,6 +2,8 @@ $(document).ready(function() {
 
 	var url_functions = WEB_URL+"functions.php";
 
+	if(typeof admin === "undefined") admin = false;
+
 
 	$('.epreuves li').hide();
 
@@ -20,15 +22,15 @@ $(document).ready(function() {
 
 	var checkDate = function () {
 
-		if($('.page_epreuve_1').length !== 0 && current_date < first_date) window.location.href = 'index.php';
-		if($('.page_epreuve_2').length !== 0 && current_date < second_date) window.location.href = 'index.php';
-		if($('.page_epreuve_3').length !== 0 && current_date < third_date) window.location.href = 'index.php';
-		if($('.page_epreuve_4').length !== 0 && current_date < fourth_date) window.location.href = 'index.php';
+		if(($('.page_epreuve_1').length !== 0 && current_date < first_date) 	&& !admin) window.location.href = 'index.php';
+		if(($('.page_epreuve_2').length !== 0 && current_date < second_date) 	&& !admin) window.location.href = 'index.php';
+		if(($('.page_epreuve_3').length !== 0 && current_date < third_date) 	&& !admin) window.location.href = 'index.php';
+		if(($('.page_epreuve_4').length !== 0 && current_date < fourth_date) 	&& !admin) window.location.href = 'index.php';
 
-		if(current_date > first_date) showFirstEpreuve();
-		if(current_date > second_date) showSecondEpreuve();
-		if(current_date > third_date) showThirdEpreuve();
-		if(current_date > fourth_date) showFourthEpreuve();
+		if(current_date > first_date 	|| admin) showFirstEpreuve();
+		if(current_date > second_date 	|| admin) showSecondEpreuve();
+		if(current_date > third_date 	|| admin) showThirdEpreuve();
+		if(current_date > fourth_date 	|| admin) showFourthEpreuve();
 
 	}();
 
@@ -165,7 +167,66 @@ $(document).ready(function() {
 	            }
 			});
 		}
+	});
 
+
+
+
+	$('.doublechoix button').on('click', function() {
+		$(this).parents('tr').find('button').removeClass('active');
+		$(this).addClass('active');
+	});
+
+	$('.validate_doublechoix').on('click', function() {
+
+		if($('.active').length === 6) {
+
+			var data = {
+				doublechoix_answer: true,
+				answers_doublechoix: []
+			};
+
+			var i = 1;
+
+			$('.active').each(function() {
+				data.answers_doublechoix[i] = $(this).text();
+				i++;
+			});
+
+			$.ajax({
+				type : "POST",
+				data: data,
+				url : url_functions,
+				success: function(response) {
+					response = JSON.parse(response);
+
+					if(response.status === 'error') {
+						popError(response.content);
+					} else {
+						popSuccess(response.content);
+					}
+					
+				},
+				error: function() {
+					console.log('error');
+	            }
+			});
+		} else {
+			popError("Vous n'avez pas répondu à toutes les questions");
+		}
+	});
+
+	var foundAnswer = 1;
+
+	$('.reponseA').on('click', function() {
+		if(foundAnswer === 1 || foundAnswer === 5 || foundAnswer === 6) foundAnswer++;
+		if(foundAnswer === 7) {
+			window.location.href = 'manga.php';
+		}
+	});
+
+	$('.reponseB').on('click', function() {
+		if(foundAnswer === 2 || foundAnswer === 3 || foundAnswer === 4) foundAnswer++;
 	});
 
 });
