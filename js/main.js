@@ -22,15 +22,15 @@ $(document).ready(function() {
 
 	var checkDate = function () {
 
-		if(($('.page_epreuve_1').length !== 0 && current_date < first_date) 	&& !admin) window.location.href = 'index.php';
-		if(($('.page_epreuve_2').length !== 0 && current_date < second_date) 	&& !admin) window.location.href = 'index.php';
-		if(($('.page_epreuve_3').length !== 0 && current_date < third_date) 	&& !admin) window.location.href = 'index.php';
-		if(($('.page_epreuve_4').length !== 0 && current_date < fourth_date) 	&& !admin) window.location.href = 'index.php';
+		if(($('.page_epreuve_1').length !== 0 && current_date < first_date) 	&& admin === false) window.location.href = 'index.php';
+		if(($('.page_epreuve_2').length !== 0 && current_date < second_date) 	&& admin === false) window.location.href = 'index.php';
+		if(($('.page_epreuve_3').length !== 0 && current_date < third_date) 	&& admin === false) window.location.href = 'index.php';
+		if(($('.page_epreuve_4').length !== 0 && current_date < fourth_date) 	&& admin === false) window.location.href = 'index.php';
 
-		if(current_date > first_date 	|| admin) showFirstEpreuve();
-		if(current_date > second_date 	|| admin) showSecondEpreuve();
-		if(current_date > third_date 	|| admin) showThirdEpreuve();
-		if(current_date > fourth_date 	|| admin) showFourthEpreuve();
+		if(current_date > first_date 	|| admin === true) showFirstEpreuve();
+		if(current_date > second_date 	|| admin === true) showSecondEpreuve();
+		if(current_date > third_date 	|| admin === true) showThirdEpreuve();
+		if(current_date > fourth_date 	|| admin === true) showFourthEpreuve();
 
 	}();
 
