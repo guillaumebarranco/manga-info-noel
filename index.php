@@ -50,7 +50,7 @@
 					<a href="epreuve3.php">Epreuve 3</a>
 				</li>
 				<li data-epreuve="4">
-					<a href="epreuve4.php">Epreuve 4</a>
+					<a href="epreuve4/">Epreuve 4</a>
 				</li>
 			</ul>
 		</div>

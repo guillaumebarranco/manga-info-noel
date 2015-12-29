@@ -18,7 +18,7 @@ $(document).ready(function() {
 	var fourth_date = 1451421005;
 
 	// current_date = firth_date+1;
-	// current_date = second_date+1;
+	current_date = fourth_date+1;
 
 	var checkDate = function () {
 
@@ -227,6 +227,146 @@ $(document).ready(function() {
 
 	$('.reponseB').on('click', function() {
 		if(foundAnswer === 2 || foundAnswer === 3 || foundAnswer === 4) foundAnswer++;
+	});
+
+
+
+
+
+
+
+	$('.right_clickable').on('click', function() {
+		var epreuve = parseInt($('.wrapper').attr('data-epreuve'));
+
+		console.log(epreuve);
+
+		if(epreuve === 1) {
+			window.location.href = 'autredroite.php';
+		} else if(epreuve === 4) {
+			window.location.href = 'discutons.php';
+		} else if(epreuve === 9000) {
+			window.location.href = 'z.php';
+		}
+	});
+
+	$('.left_clickable').on('click', function() {
+		var epreuve = parseInt($('.wrapper').attr('data-epreuve'));
+
+		console.log(epreuve);
+
+		if(epreuve === 1) {
+			window.location.href = '2014.php';
+		} else if(epreuve === 4) {
+			window.location.href = 'voyant.php';
+		} else if(epreuve === 9000) {
+			window.location.href = 'index.php';
+		}
+	});
+
+    var check_mm = 0,
+    	mm = 0;
+
+	$(document).keydown(function (e) {
+		console.log(e.which);
+
+		if ($('.wrapper[data-epreuve=1]').length === 1) {
+
+			if (mm == 0) {
+				mm = e.which == 77 ? 1 : 0;
+			} else if (mm == 1) {
+				mm = e.which == 69 ? 2 : 0;
+			} else if (mm == 2) {
+				mm = e.which == 78 ? 3 : 0;
+			} else if (mm == 3) {
+				mm = e.which == 82 ? 4 : 0;
+			} else if (mm == 4) {
+				mm = e.which == 69 ? 5 : 0;
+			} else if (mm == 5) {
+				mm = e.which == 80 ? 6 : 0;
+			}else if (mm == 6) {
+				mm = e.which == 85 ? 7 : 0;
+			} else if (mm == 7) {
+				mm = e.which == 83 ? 8 : 0;
+				window.location.href = "../animal.php";
+			}
+			
+		} else if ($('.wrapper[data-epreuve=3]').length === 1) {
+
+			if (mm == 0) {
+				mm = e.which == 84 ? 1 : 0;
+			} else if (mm == 1) {
+				mm = e.which == 79 ? 2 : 0;
+			} else if (mm == 2) {
+				mm = e.which == 66 ? 3 : 0;
+			} else if (mm == 3) {
+				mm = e.which == 73 ? 4 : 0;
+			} else if (mm == 4) {
+				mm = e.which == 65 ? 5 : 0;
+			} else if (mm == 5) {
+				mm = e.which == 83 ? 6 : 0;
+				window.location.href = "tobias.php";
+			}
+			
+		} else if ($('.wrapper[data-epreuve=5]').length === 1) {
+
+			if (mm == 0) {
+				mm = e.which == 65 ? 1 : 0;
+			} else if (mm == 1) {
+				mm = e.which == 66 ? 2 : 0;
+			} else if (mm == 2) {
+				mm = e.which == 85 ? 3 : 0;
+			} else if (mm == 3) {
+				mm = e.which == 82 ? 4 : 0;
+			} else if (mm == 4) {
+				mm = e.which == 65 ? 5 : 0;
+			} else if (mm == 5) {
+				mm = e.which == 77 ? 6 : 0;
+			} else if (mm == 6) {
+				mm = e.which == 69 ? 7 : 0;
+				window.location.href = "don.php";
+			}
+		} else if ($('.wrapper[data-epreuve=6]').length === 1) {
+
+			if (mm == 0) {
+				mm = e.which == 84 ? 1 : 0;
+			} else if (mm == 1) {
+				mm = e.which == 79 ? 2 : 0;
+			} else if (mm == 2) {
+				mm = e.which == 87 ? 3 : 0;
+			} else if (mm == 3) {
+				mm = e.which == 69 ? 4 : 0;
+			} else if (mm == 4) {
+				mm = e.which == 82 ? 5 : 0;
+			} else if (mm == 5) {
+				mm = e.which == 32 ? 6 : 0;
+			} else if (mm == 6) {
+				mm = e.which == 79 ? 7 : 0;
+			} else if (mm == 7) {
+				mm = e.which == 70 ? 8 : 0;
+			} else if (mm == 8) {
+				mm = e.which == 32 ? 9 : 0;
+			} else if (mm == 9) {
+				mm = e.which == 71 ? 10 : 0;
+			} else if (mm == 10) {
+				mm = e.which == 79 ? 11 : 0;
+			} else if (mm == 11) {
+				mm = e.which == 68 ? 12 : 0;
+				window.location.href="towerofgod.php";
+			}
+		}
+
+	});
+
+	$('.validate_top').on('click', function() {
+		if($('input[name=name_top]').val().toLowerCase() === 'kayze') {
+			window.location.href = "z.php";
+		}
+	});
+
+	$('.validate_bottom').on('click', function() {
+		if($('input[name=name_bottom]').val().toLowerCase() === 'kayze') {
+			window.location.href = "stop.php";
+		}
 	});
 
 });

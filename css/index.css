@@ -18,6 +18,10 @@ header {
 	padding: 30px;
 }
 
+.wrapper_big {
+	width: 1200px;
+}
+
 
 button {
 	background-color: white;
@@ -125,4 +129,24 @@ footer {
 
 .click {
 	cursor: pointer;
+}
+
+
+
+
+
+.left, .right, .top, .bottom {
+	width: 100%;
+	height: 200px;
+}
+
+.left, .right {
+	display: inline-block;
+	width: 200px;
+	height: 400px;
+}
+
+.supernem {
+	display: inline-block;
+	margin-top:;
 }
