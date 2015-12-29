@@ -25,7 +25,7 @@ $(document).ready(function() {
 		if(($('.page_epreuve_1').length !== 0 && current_date < first_date) 	&& admin === false) window.location.href = 'index.php';
 		if(($('.page_epreuve_2').length !== 0 && current_date < second_date) 	&& admin === false) window.location.href = 'index.php';
 		if(($('.page_epreuve_3').length !== 0 && current_date < third_date) 	&& admin === false) window.location.href = 'index.php';
-		if(($('.page_epreuve_4').length !== 0 && current_date < fourth_date) 	&& admin === false) window.location.href = 'index.php';
+		if(($('.page_epreuve_4').length !== 0 && current_date < fourth_date) 	&& admin === false) window.location.href = '../index.php';
 
 		if(current_date > first_date 	|| admin === true) showFirstEpreuve();
 		if(current_date > second_date 	|| admin === true) showSecondEpreuve();
