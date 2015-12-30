@@ -393,7 +393,7 @@ $(document).ready(function() {
 				mm = e.which == 65 ? 3 : 0;
 			} else if (mm == 3) {
 				mm = e.which == 84 ? 4 : 0;
-				window.location.href="charade.php";
+				window.location.href="ile.php";
 			}
 		}
 	});
