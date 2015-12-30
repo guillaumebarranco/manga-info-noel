@@ -159,7 +159,7 @@
 		$holes[7] = "espace privé";
 		$holes[8] = "sondages";
 		$holes[9] = "sondages manga";
-		$holes[10] = "Full Metal Alchemist";
+		$holes[10] = "Fullmetal Alchemist";
 		$holes[11] = "Full Metal Alchemist";
 		$holes[12] = "greny";
 		$holes[13] = "Oufdewii";
