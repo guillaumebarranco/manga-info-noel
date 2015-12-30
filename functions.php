@@ -21,6 +21,9 @@
 		} else if(isset($_POST['chemin'])) {
 			checkChemin();
 
+		} else if(isset($_POST['holes_answer'])) {
+			checkHoles();
+
 		} else {
 			$status = "error";
 			echo json_encode($status);
@@ -133,6 +136,52 @@
 
 		if($nb_errors === 0) {
 			$response['content'] = "Bravo, vous avez trouvé les bonnes réponses ! Malheureusement, ce n'est pas la bonne façon d'obtenir l'indice.";
+			$status = 'success';
+		} else {
+			$status = 'error';
+			$response['content'] = 'Vous avez '.$nb_errors.' erreurs !';
+		}
+
+		$response['status'] = $status;
+		echo json_encode($response);
+	}
+
+	function checkHoles() {
+
+		$holes = array();
+	
+		$holes[1] = "tsubasaki";
+		$holes[2] = "3";
+		$holes[3] = "la mangathèque";
+		$holes[4] = "naruto";
+		$holes[5] = "admin manga info";
+		$holes[6] = "greg";
+		$holes[7] = "espace privé";
+		$holes[8] = "sondages";
+		$holes[9] = "sondages manga";
+		$holes[10] = "Full Metal Alchemist";
+		$holes[11] = "Full Metal Alchemist";
+		$holes[12] = "greny";
+		$holes[13] = "Oufdewii";
+		$holes[14] = "cygheks";
+		$holes[15] = "gear 2nd";
+		$holes[16] = "2016";
+		$holes[17] = "Brook Le Fredonneur";
+		$holes[18] = "Vastolorde";
+
+		if(!empty($_POST['answers_holes'])) {
+
+			$nb_errors = 0;
+
+			for ($i=1; $i <= count($holes); $i++) {
+				if(strtolower($_POST['answers_holes'][$i]) !== strtolower($holes[$i])) {
+					$nb_errors++;
+				}
+			}
+		}
+
+		if($nb_errors === 0) {
+			$response['content'] = "roller.php";
 			$status = 'success';
 		} else {
 			$status = 'error';

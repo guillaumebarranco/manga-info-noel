@@ -10,12 +10,13 @@ $(document).ready(function() {
 	if (!Date.now) Date.now = function() { return new Date().getTime(); }
 
 	var current_date = Math.floor(Date.now() / 1000);
-	console.log(current_date);
+	// console.log(current_date);
 
 	var first_date = 1451088034;
 	var second_date = 1451248137;
 	var third_date = 1451248137;
 	var fourth_date = 1451421005;
+	var fifth_date = 1451421005;
 
 	// current_date = firth_date+1;
 	// current_date = fourth_date+1;
@@ -26,11 +27,13 @@ $(document).ready(function() {
 		if(($('.page_epreuve_2').length !== 0 && current_date < second_date) 	&& admin === false) window.location.href = 'index.php';
 		if(($('.page_epreuve_3').length !== 0 && current_date < third_date) 	&& admin === false) window.location.href = 'index.php';
 		if(($('.page_epreuve_4').length !== 0 && current_date < fourth_date) 	&& admin === false) window.location.href = '../index.php';
+		if(($('.page_epreuve_5').length !== 0 && current_date < fifth_date) 	&& admin === false) window.location.href = 'index.php';
 
 		if(current_date > first_date 	|| admin === true) showFirstEpreuve();
 		if(current_date > second_date 	|| admin === true) showSecondEpreuve();
 		if(current_date > third_date 	|| admin === true) showThirdEpreuve();
 		if(current_date > fourth_date 	|| admin === true) showFourthEpreuve();
+		if(current_date > fifth_date 	|| admin === true) showFifthEpreuve();
 
 	}();
 
@@ -48,6 +51,10 @@ $(document).ready(function() {
 
 	function showFourthEpreuve() {
 		$('li[data-epreuve=4]').show();
+	}
+
+	function showFifthEpreuve() {
+		$('li[data-epreuve=5]').show();
 	}
 
 	/*
@@ -267,7 +274,7 @@ $(document).ready(function() {
     	mm = 0;
 
 	$(document).keydown(function (e) {
-		console.log(e.which);
+		// console.log(e.which);
 
 		if ($('.wrapper[data-epreuve=1]').length === 1) {
 
@@ -367,6 +374,53 @@ $(document).ready(function() {
 		if($('input[name=name_bottom]').val().toLowerCase() === 'kayze') {
 			window.location.href = "stop.php";
 		}
+	});
+
+
+
+
+
+
+
+
+
+
+
+	$('.validate_holes').on('click', function() {
+
+		var data = {
+			holes_answer: true,
+			answers_holes: []
+		};
+
+		var i = 1;
+
+		$('.holes input').each(function() {
+			data.answers_holes[i] = $(this).val();
+			i++;
+		});
+
+		$.ajax({
+			type : "POST",
+			data: data,
+			url : url_functions,
+			success: function(response) {
+				response = JSON.parse(response);
+
+				response.status = 'c';
+				response.content = "roller.php";
+
+				if(response.status === 'error') {
+					popError(response.content);
+				} else {
+					window.location.href = response.content;
+				}
+				
+			},
+			error: function() {
+				console.log('error');
+            }
+		});
 	});
 
 });

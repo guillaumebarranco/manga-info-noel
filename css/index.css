@@ -150,3 +150,23 @@ footer {
 	display: inline-block;
 	margin-top:;
 }
+
+.holes {
+	text-align: left;
+}
+
+
+.holes input {
+	display: inline-block;
+	border: none;
+	border-bottom: solid 1px black;
+	outline-style: none;
+	padding-bottom: 2px;
+	width: 100px;
+}
+
+.number:before {
+	content: "(n)";
+	display: inline-block;
+	color: red;
+}
