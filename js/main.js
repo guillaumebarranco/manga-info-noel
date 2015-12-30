@@ -342,15 +342,15 @@ $(document).ready(function() {
 		} else if ($('.wrapper[data-epreuve=6]').length === 1) {
 
 			if (mm == 0) {
-				mm = e.which == 83 ? 1 : 0;
+				mm = e.which == 84 ? 1 : 0;
 			} else if (mm == 1) {
-				mm = e.which == 73 ? 2 : 0;
+				mm = e.which == 79 ? 2 : 0;
 			} else if (mm == 2) {
-				mm = e.which == 77 ? 3 : 0;
+				mm = e.which == 87 ? 3 : 0;
 			} else if (mm == 3) {
-				mm = e.which == 80 ? 4 : 0;
+				mm = e.which == 69 ? 4 : 0;
 			} else if (mm == 4) {
-				mm = e.which == 76 ? 5 : 0;
+				mm = e.which == 82 ? 5 : 0;
 			} else if (mm == 5) {
 				mm = e.which == 32 ? 6 : 0;
 			} else if (mm == 6) {
