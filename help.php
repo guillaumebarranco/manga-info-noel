@@ -32,6 +32,8 @@
 			<button class="helpme">Help</button>
 
 			<div class="txt"></div>
+
+			<a href="epreuve6.php">Retourner sur la page de l'épreuve</a>
 		</div>
 
 		<footer>
