@@ -352,7 +352,7 @@ $(document).ready(function() {
 			} else if (mm == 4) {
 				mm = e.which == 76 ? 5 : 0;
 			} else if (mm == 5) {
-				mm = e.which == 69 ? 6 : 0;
+				mm = e.which == 32 ? 6 : 0;
 			} else if (mm == 6) {
 				mm = e.which == 79 ? 7 : 0;
 			} else if (mm == 7) {
