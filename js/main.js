@@ -407,9 +407,6 @@ $(document).ready(function() {
 			success: function(response) {
 				response = JSON.parse(response);
 
-				response.status = 'c';
-				response.content = "roller.php";
-
 				if(response.status === 'error') {
 					popError(response.content);
 				} else {
