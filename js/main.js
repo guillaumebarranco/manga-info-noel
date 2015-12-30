@@ -17,6 +17,7 @@ $(document).ready(function() {
 	var third_date = 1451248137;
 	var fourth_date = 1451421005;
 	var fifth_date = 1451505603;
+	var sixth_date = 1451505603;
 
 	// current_date = firth_date+1;
 	// current_date = fourth_date+1;
@@ -28,12 +29,14 @@ $(document).ready(function() {
 		if(($('.page_epreuve_3').length !== 0 && current_date < third_date) 	&& admin === false) window.location.href = 'index.php';
 		if(($('.page_epreuve_4').length !== 0 && current_date < fourth_date) 	&& admin === false) window.location.href = '../index.php';
 		if(($('.page_epreuve_5').length !== 0 && current_date < fifth_date) 	&& admin === false) window.location.href = 'index.php';
+		if(($('.page_epreuve_5').length !== 0 && current_date < sixth_date) 	&& admin === false) window.location.href = 'index.php';
 
 		if(current_date > first_date 	|| admin === true) showFirstEpreuve();
 		if(current_date > second_date 	|| admin === true) showSecondEpreuve();
 		if(current_date > third_date 	|| admin === true) showThirdEpreuve();
 		if(current_date > fourth_date 	|| admin === true) showFourthEpreuve();
 		if(current_date > fifth_date 	|| admin === true) showFifthEpreuve();
+		if(current_date > fifth_date 	|| admin === true) showSixthEpreuve();
 
 	}();
 
@@ -55,6 +58,10 @@ $(document).ready(function() {
 
 	function showFifthEpreuve() {
 		$('li[data-epreuve=5]').show();
+	}
+
+	function showSixthEpreuve() {
+		$('li[data-epreuve=6]').show();
 	}
 
 	/*
@@ -274,7 +281,7 @@ $(document).ready(function() {
     	mm = 0;
 
 	$(document).keydown(function (e) {
-		// console.log(e.which);
+		console.log(e.which);
 
 		if ($('.wrapper[data-epreuve=1]').length === 1) {
 
@@ -335,17 +342,17 @@ $(document).ready(function() {
 		} else if ($('.wrapper[data-epreuve=6]').length === 1) {
 
 			if (mm == 0) {
-				mm = e.which == 84 ? 1 : 0;
+				mm = e.which == 83 ? 1 : 0;
 			} else if (mm == 1) {
-				mm = e.which == 79 ? 2 : 0;
+				mm = e.which == 73 ? 2 : 0;
 			} else if (mm == 2) {
-				mm = e.which == 87 ? 3 : 0;
+				mm = e.which == 77 ? 3 : 0;
 			} else if (mm == 3) {
-				mm = e.which == 69 ? 4 : 0;
+				mm = e.which == 80 ? 4 : 0;
 			} else if (mm == 4) {
-				mm = e.which == 82 ? 5 : 0;
+				mm = e.which == 76 ? 5 : 0;
 			} else if (mm == 5) {
-				mm = e.which == 32 ? 6 : 0;
+				mm = e.which == 69 ? 6 : 0;
 			} else if (mm == 6) {
 				mm = e.which == 79 ? 7 : 0;
 			} else if (mm == 7) {
@@ -360,8 +367,35 @@ $(document).ready(function() {
 				mm = e.which == 68 ? 12 : 0;
 				window.location.href="towerofgod.php";
 			}
-		}
+		} else if($('.wrapper_leretour').length === 1) {
 
+			if (mm == 0) {
+				mm = e.which == 83 ? 1 : 0;
+			} else if (mm == 1) {
+				mm = e.which == 73 ? 2 : 0;
+			} else if (mm == 2) {
+				mm = e.which == 77 ? 3 : 0;
+			} else if (mm == 3) {
+				mm = e.which == 80 ? 4 : 0;
+			} else if (mm == 4) {
+				mm = e.which == 76 ? 5 : 0;
+			} else if (mm == 5) {
+				mm = e.which == 69 ? 6 : 0;
+				window.location.href="charade.php";
+			}
+		} else if($('.wrapper_cat').length === 1) {
+
+			if (mm == 0) {
+				mm = e.which == 67 ? 1 : 0;
+			} else if (mm == 1) {
+				mm = e.which == 72 ? 2 : 0;
+			} else if (mm == 2) {
+				mm = e.which == 65 ? 3 : 0;
+			} else if (mm == 3) {
+				mm = e.which == 84 ? 4 : 0;
+				window.location.href="charade.php";
+			}
+		}
 	});
 
 	$('.validate_top').on('click', function() {
@@ -418,6 +452,26 @@ $(document).ready(function() {
 				console.log('error');
             }
 		});
+	});
+
+	var count = 0;
+
+	$('.helpme').on('click', function() {
+
+		if(count > 5) {
+			window.location.href = "leretour.php";
+		} else {
+			$('.txt').append('<p>Eh bien... Persévérez ! :D</p>');
+			count++;
+		}
+	});
+
+	$('.koko').on('click', function() {
+		$(this).text("Il retombe toujours sur ses pattes");
+		var that = $(this);
+		setTimeout(function() {
+			that.text("Copyright © Manga-Info 2015");
+		}, 100);
 	});
 
 });

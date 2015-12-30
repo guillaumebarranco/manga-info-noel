@@ -55,6 +55,10 @@
 				<li data-epreuve="5">
 					<a href="epreuve5.php">Epreuve 5</a>
 				</li>
+
+				<li data-epreuve="6">
+					<a href="epreuve6.php">Epreuve 6</a>
+				</li>
 			</ul>
 		</div>
 
