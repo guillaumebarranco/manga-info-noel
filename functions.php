@@ -203,7 +203,7 @@
 		} else {
 
 			$status = 'error';
-			$response['content'] = 'Mauvaise réponse mon lapin. Au mieux cette danse t\'as envoyé valsé...';
+			$response['content'] = 'Mauvaise réponse mon lapin. Au mieux cette danse t\'as envoyé valser...';
 		}
 
 		require_once('config.php');
