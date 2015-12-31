@@ -214,7 +214,7 @@
 
 			$mot = $_POST['answer'];
 			$datetime = date_format(date_create(), 'Y-m-d H:i:s');
-			$ip = 'ok'; //$_SERVER['REMOTE_ADDR'];
+			$ip = $_SERVER['REMOTE_ADDR'];
 
 
 			$insert = $bdd->prepare("INSERT INTO `words` (`mot`, `datetime`, `IP`) VALUES (:mot, :datetime, :ip)");			
