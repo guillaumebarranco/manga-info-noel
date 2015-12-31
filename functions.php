@@ -201,8 +201,32 @@
 			$status = 'error';
 			$response['content'] = "C'était bien tenté, j'avoue. Tu auras une gauffre. Mais tu t'es gauffré.";
 		} else {
+
 			$status = 'error';
 			$response['content'] = 'Mauvaise réponse mon lapin. Au mieux cette danse t\'as envoyé valsé...';
+		}
+
+		require_once('config.php');
+
+		$bdd = new PDO('mysql:host=localhost;dbname=mots', 'root', PASSWORD);
+
+		try {
+
+			$mot = $_POST['answer'];
+			$datetime = date_format(date_create(), 'Y-m-d H:i:s');
+			$ip = 'ok'; //$_SERVER['REMOTE_ADDR'];
+
+
+			$insert = $bdd->prepare("INSERT INTO `words` (`mot`, `datetime`, `IP`) VALUES (:mot, :datetime, :ip)");			
+			
+			$insert->bindParam(':mot', $mot, \PDO::PARAM_STR);
+			$insert->bindParam(':datetime', $datetime, \PDO::PARAM_STR);
+			$insert->bindParam(':ip', $ip, \PDO::PARAM_STR);
+			$insert->execute();
+
+		} catch(Exception $e) {
+			var_dump($e);
+			die;
 		}
 
 		$response['status'] = $status;
