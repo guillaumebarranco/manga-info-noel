@@ -208,19 +208,30 @@
 		require_once('config.php');
 
 		$bdd = new PDO('mysql:host=localhost;dbname=mots', 'root', PASSWORD);
-
+		//UPDATE `words` SET `user`= 'Raleygh 009' WHERE IP = "81.240.138.37";
 		try {
 
 			$mot = utf8_encode($_POST['answer']);
 			$datetime = date_format(date_create(), 'Y-m-d H:i:s');
 			$ip = $_SERVER['REMOTE_ADDR'];
 
+			$user = '';
 
-			$insert = $bdd->prepare("INSERT INTO `words` (`mot`, `datetime`, `IP`, `user`) VALUES (:mot, :datetime, :ip, '')");			
+			$response = $bdd->prepare("SELECT * FROM `words` WHERE `IP` = :ip");
+			$response->bindParam(':ip', $ip, \PDO::PARAM_STR);
+			$response->execute();
+
+			$datas =  $response->fetchAll();
+
+			if(isset($datas[0])) $user = $datas[0]['user'];
+
+
+			$insert = $bdd->prepare("INSERT INTO `words` (`mot`, `datetime`, `IP`, `user`) VALUES (:mot, :datetime, :ip, :user)");			
 			
 			$insert->bindParam(':mot', $mot, \PDO::PARAM_STR);
 			$insert->bindParam(':datetime', $datetime, \PDO::PARAM_STR);
 			$insert->bindParam(':ip', $ip, \PDO::PARAM_STR);
+			$insert->bindParam(':user', $user, \PDO::PARAM_STR);
 			$insert->execute();
 
 		} catch(Exception $e) {
