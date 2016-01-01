@@ -230,16 +230,19 @@
 				if(!in_array($data['IP'], $tab_ip) && $data['user'] !== '') $tab_ip[$data['IP']] = $data['user'];
 			}
 
-			foreach ($datas as $data) {
+			var_dump($tab_ip);
+			die;
 
-				if($data['user'] === '') {
-					$update = $bdd->prepare("UPDATE `words` SET `user` = :user WHERE IP = :ip");			
+			// foreach ($datas as $data) {
 
-					$update->bindParam(':ip', $data['ip'], \PDO::PARAM_STR);
-					$update->bindParam(':user', $tab_ip[$data['ip']], \PDO::PARAM_STR);
-					$update->execute();
-				}
-			}
+			// 	if($data['user'] === '') {
+			// 		$update = $bdd->prepare("UPDATE `words` SET `user` = :user WHERE IP = :ip");			
+
+			// 		$update->bindParam(':ip', $data['ip'], \PDO::PARAM_STR);
+			// 		$update->bindParam(':user', $tab_ip[$data['ip']], \PDO::PARAM_STR);
+			// 		$update->execute();
+			// 	}
+			// }
 		}
 
 		// $response = $bdd->prepare("SELECT * FROM `words` WHERE `IP` = :ip");
