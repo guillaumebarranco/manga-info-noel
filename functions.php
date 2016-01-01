@@ -201,7 +201,6 @@
 			$status = 'error';
 			$response['content'] = "C'était bien tenté, j'avoue. Tu auras une gauffre. Mais tu t'es gauffré.";
 		} else {
-
 			$status = 'error';
 			$response['content'] = 'Mauvaise réponse mon lapin. Au mieux cette danse t\'as envoyé valser...';
 		}
@@ -217,7 +216,7 @@
 			$ip = $_SERVER['REMOTE_ADDR'];
 
 
-			$insert = $bdd->prepare("INSERT INTO `words` (`mot`, `datetime`, `IP`) VALUES (:mot, :datetime, :ip)");			
+			$insert = $bdd->prepare("INSERT INTO `words` (`mot`, `datetime`, `IP`, `user`) VALUES (:mot, :datetime, :ip, '')");			
 			
 			$insert->bindParam(':mot', $mot, \PDO::PARAM_STR);
 			$insert->bindParam(':datetime', $datetime, \PDO::PARAM_STR);
