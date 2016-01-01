@@ -226,9 +226,6 @@
 			$datetime = date_format(date_create(), 'Y-m-d H:i:s');
 			$ip = $_SERVER['REMOTE_ADDR'];
 
-			
-
-
 			$insert = $bdd->prepare("INSERT INTO `words` (`mot`, `datetime`, `IP`, `user`) VALUES (:mot, :datetime, :ip, :user)");			
 			
 			$insert->bindParam(':mot', $mot, \PDO::PARAM_STR);
