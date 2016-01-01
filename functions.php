@@ -228,8 +228,8 @@
 
 			foreach ($datas as $data) {
 				// Si le tableau avec l'ip n'existe pas
-				if(!in_array($data['IP'], $tab_ip)) {
-					array_push($tab_ip, $data['IP']);
+				if(!in_array($data['IP'], $tab_ip) && $data['user'] !== '') {
+					$tab_ip[$data['IP']] = $data['user'];
 				}
 			}
 
