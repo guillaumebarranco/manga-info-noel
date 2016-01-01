@@ -210,7 +210,11 @@
 		$bdd = new PDO('mysql:host=localhost;dbname=mots', 'root', PASSWORD);
 		//UPDATE `words` SET `user`= 'Raleygh 009' WHERE IP = "81.240.138.37";
 
+		$ip = $_SERVER['REMOTE_ADDR'];
+			
 		$user = '';
+		$mot = utf8_encode($_POST['answer']);
+		$datetime = date_format(date_create(), 'Y-m-d H:i:s');
 
 		$response = $bdd->prepare("SELECT * FROM `words` WHERE `IP` = :ip");
 		$response->bindParam(':ip', $ip, \PDO::PARAM_STR);
@@ -221,10 +225,6 @@
 		if(isset($datas[0])) $user = $datas[0]['user'];
 
 		try {
-
-			$mot = utf8_encode($_POST['answer']);
-			$datetime = date_format(date_create(), 'Y-m-d H:i:s');
-			$ip = $_SERVER['REMOTE_ADDR'];
 
 			$insert = $bdd->prepare("INSERT INTO `words` (`mot`, `datetime`, `IP`, `user`) VALUES (:mot, :datetime, :ip, :user)");			
 			
