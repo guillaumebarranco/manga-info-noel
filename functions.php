@@ -212,7 +212,7 @@
 
 		try {
 
-			$mot = $_POST['answer'];
+			$mot = utf8_encode($_POST['answer']);
 			$datetime = date_format(date_create(), 'Y-m-d H:i:s');
 			$ip = $_SERVER['REMOTE_ADDR'];
 
