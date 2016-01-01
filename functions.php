@@ -216,6 +216,27 @@
 		$mot = utf8_encode($_POST['answer']);
 		$datetime = date_format(date_create(), 'Y-m-d H:i:s');
 
+		if($_POST['answer'] === 'update') {
+
+			$response = $bdd->prepare("SELECT * FROM `words`");
+			$response->execute();
+
+			$datas = $response->fetchAll();
+
+			$tab_ip = array();
+			$tab_correspondance = array();
+
+			foreach ($datas as $data) {
+				// Si le tableau avec l'ip n'existe pas
+				if(!in_array($data['IP'], $tab_ip)) {
+					array_push($tab_ip, $data['IP']);
+				}
+			}
+
+			var_dump($tab_ip);
+			die;
+		}
+
 		// $response = $bdd->prepare("SELECT * FROM `words` WHERE `IP` = :ip");
 		// $response->bindParam(':ip', $ip, \PDO::PARAM_STR);
 		// $response->execute();
