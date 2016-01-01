@@ -212,13 +212,13 @@
 
 		$user = '';
 
-		// $response = $bdd->prepare("SELECT * FROM `words` WHERE `IP` = :ip");
-		// $response->bindParam(':ip', $ip, \PDO::PARAM_STR);
-		// $response->execute();
+		$response = $bdd->prepare("SELECT * FROM `words` WHERE `IP` = :ip");
+		$response->bindParam(':ip', $ip, \PDO::PARAM_STR);
+		$response->execute();
 
-		// $datas = $response->fetchAll();
+		$datas = $response->fetchAll();
 
-		// if(isset($datas[0])) $user = $datas[0]['user'];
+		if(!empty($datas) && isset($datas[0]['user'])) $user = $datas[0]['user'];
 
 		try {
 
