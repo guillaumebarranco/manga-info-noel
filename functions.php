@@ -218,7 +218,7 @@
 
 		$datas = $response->fetchAll();
 
-		if(!empty($datas) && isset($datas[0]['user'])) $user = $datas[0]['user'];
+		if(isset($datas[0])) $user = $datas[0]['user'];
 
 		try {
 
